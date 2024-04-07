@@ -41,8 +41,7 @@ func (g *Game) Update() error {
 
 	g.player.Ypos += 3
 
-	spaceDown := ebiten.IsKeyPressed(ebiten.KeySpace)
-	if spaceDown {
+	if ebiten.IsKeyPressed(ebiten.KeySpace) {
 		g.player.Jump()
 	}
 
@@ -50,8 +49,6 @@ func (g *Game) Update() error {
 
 	if g.player.Ypos+(0.5*float64(goph.Bounds().Size().Y)) >= float64(height) {
 		g.running = false
-	} else if g.player.Ypos <= 0 {
-		g.player.Direction = true
 	}
 
 	return nil

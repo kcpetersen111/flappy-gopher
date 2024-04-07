@@ -1,4 +1,4 @@
-package player
+package entity
 
 import (
 	"sync"
@@ -8,7 +8,6 @@ import (
 type Player struct {
 	Xpos      float64
 	Ypos      float64
-	Direction bool
 	coolDown  bool
 	jumpMutex sync.RWMutex
 }
@@ -20,7 +19,7 @@ func (p *Player) Jump() {
 		return
 	}
 	p.coolDown = true
-	p.Ypos -= 75
+	p.Ypos -= 100
 	// go off cool down in go routine
 	go func() {
 		time.Sleep(time.Second)
