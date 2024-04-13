@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	_ "embed"
-	"flappyGopher/player"
+	"flappyGopher/entity"
 	"image"
 	"image/color"
 	_ "image/jpeg"
@@ -29,7 +29,7 @@ func init() {
 }
 
 type Game struct {
-	player  player.Player
+	player  entity.Player
 	running bool
 }
 
@@ -79,7 +79,7 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeigh
 
 func main() {
 	game := &Game{
-		player: player.Player{
+		player: entity.Player{
 			Xpos: 100,
 			Ypos: 100,
 		},
